@@ -1,0 +1,27 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%;
+	font-family: Montserrat, sans-serif;
+	line-height: 1.5rem;
+	letter-spacing: 0.25%;
+	color: rgb(33, 37, 41);
+}
+
+body {
+    box-sizing: border-box;
+    font-size: $default-font-size;
+    line-height: 2.2rem;
+
+    @include respond(sm-1) {
+		//font-size: 1.4rem;
+        font-size: calc(#{$default-font-size} - .2rem);
+	}
+}

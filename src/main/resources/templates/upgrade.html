@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link th:href="@{/css/styles_principal.css}" rel="stylesheet" />
+
+
+<title>Upgrade</title>
+</head>
+
+<body>
+	<div th:insert="navbar.html :: nav"></div>
+
+	<div class="main-content">
+
+		<h1 class ="large-header large-header--article">Get lesson plans</h1>
+
+		<div class="lp-container">
+
+			<div class="card">
+				<div class="card__side">
+				<h2 class="h2">All 8 levels</h2>
+					 <div class="card__details">		 
+						 <ul>
+							 <li>480 lessons</li>							 
+							 <li>Save yourself 800+ hrs of preparation time</li>	
+							 <li>€280.00</li>	
+							 <li>1 year's access</li>	
+							 <li><small>Get all subscriptions and extend active subscriptions by 1 year</small></li>							 						 
+							 <li><a class="mt-1 ml-auto btn btn--action-tertiary" href="/checkout?id=all">Buy</a></li>
+							 			 
+						 </ul>						 
+					 </div>
+				</div>
+			</div>
+			
+			<div th:each="subNon : ${nonActiveSubscriptions}" class="card">
+				<div class="card__side">
+				<h2 th:text="${subNon.displayName}" class="h2">Subscription</h2>
+					 <div class="card__details">		 
+						 <ul>
+							 <li>60 lessons</li>							 
+							 <li>Save yourself 180 hrs of preparation time</li>	
+							 <li th:text="${'€' + subNon.priceFormatted}" >40 €</li>
+							 <li>1 year's access</li>		
+							 <li><a class="mt-1 ml-auto btn btn--action-tertiary" th:href="@{/checkout?id=__${subNon.name}__}">Buy</a></li>				 			 
+						 </ul>						 
+					 </div>
+				</div>
+			</div>
+			
+			<div th:each="subAct : ${activeSubscriptions}" class="card">
+				<div class="card__side">
+				<h2 th:text="${subAct.subscription.displayName}" class="h2 h2--secondary">Subscription</h2>
+					 <div class="card__details">		 
+						 <ul>
+						     <li><b>Subscribed</b></li>
+						     <li th:text="'Expires: ' + ${#temporals.format(subAct.getNextSubscriptionStartDate(), 'd MMM uuuu')}"></li>
+							 <li>60 lessons</li>							 
+							 <li th:text="${'€' + subAct.subscription.priceFormatted}" >40 €</li>								 
+							 <li><small th:text="'Get access until ' + ${#temporals.format(subAct.getNextSubscriptionStartDate().plusYears(1L), 'd MMM uuuu')}">+ 1 year's access</small></li>					 
+							 <li><a class="mt-1 ml-auto btn btn--primary-outline" th:href="@{/checkout?id=__${subAct.subscription.name}__}">Extend</a></li>				 			 
+						 </ul>						 
+					 </div>
+				</div>
+			</div>		
+
+
+
+
+
+			
+
+		</div>
+
+	</div>
+</body>
+
+</html>

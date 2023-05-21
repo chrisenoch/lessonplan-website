@@ -1,0 +1,52 @@
+.card {
+    width: 30rem;
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+
+    @include respond(med-1) {
+        display: flex;
+		flex-direction: column;
+		align-items: center;
+        margin-left: 0rem;
+	}
+
+
+    &__side {
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+    }
+
+    &__picture {
+        background-size: contain;
+        height: 23rem;
+        background-blend-mode: screen;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        
+    }
+
+    &__details {
+        padding: 1rem;
+        min-width:30rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
+    }
+
+}

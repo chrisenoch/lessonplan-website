@@ -1,0 +1,29 @@
+// MEDIA QUERY MANAGER
+/*
+
+ORDER: Base + typography > general layout + grid > page layout > components
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == sm-1 {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+
+    @if $breakpoint == med-1 {
+        @media only screen and (max-width: 48.75em) { @content };    //780px
+    }
+
+    @if $breakpoint == med-2 {
+        @media only screen and (max-width: 61.86em) { @content };    //990px
+    }
+
+    @if $breakpoint == med-3 {
+        @media only screen and (max-width: 66em) { @content };     // 1027px
+    }
+
+    @if $breakpoint == lg-1 {
+        @media only screen and (max-width: 80em) { @content };    //1280px
+    }
+
+}
+

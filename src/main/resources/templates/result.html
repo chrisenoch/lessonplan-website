@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link th:href="@{/css/styles_principal.css}" rel="stylesheet" />
+
+	<title>Payment result</title>
+</head>
+
+<body>
+	<div th:insert="navbar.html :: nav"></div>
+
+	<div class="main-content">
+		<div class="main-content-inner ml-5 mr-5">
+
+			<div th:if="${paymentSuccess == 'paymentSucceeded'}" class="center-text">
+				<h1 class="mt-1 font font--big success ">Payment Success!</h1>
+				<a class="mt-2 btn btn--big btn--primary" href='/lessonplans'>Find lesson plans</a></div>
+			</div>
+
+			<div th:if="${paymentSuccess == 'paymentFailed'}" class="center-text">
+				<h1 class="mt-1 font font--big alert">Payment Failed</h1>
+				<p class="alert mt-2 mb-3 ml-10 mr-10" role="alert"> Please try again or use a different payment card.</p>
+				<div class="center-text mt-2"><a class="btn btn--big btn--tertiary" href='/upgrade'>Get subscription</a></div>				
+			</div>
+
+			<div th:if="${paymentSuccess == 'paymentSucceededButCheckoutNotSaved'}" class="center-text">
+				<h1 class="mt-1 font font--big alert">Payment Failed</h1>
+				<p class="alert mt-2 mb-3 ml-10 mr-10"  role="alert">There been a problem with your order. Please contact the website administrator. Sorry for the inconvenience.</p>
+				<div class="center-text mt-2"><a class="btn btn--big btn--tertiary" href='/upgrade'>Get subscription</a></div>				
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</html>

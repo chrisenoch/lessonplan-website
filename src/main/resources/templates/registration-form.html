@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<title>Registration</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<link th:href="@{/css/styles_principal.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<div th:insert="navbar.html :: nav"></div>
+
+	<div class="main-content">
+	<div class="center-flex">
+		<div class="form__login">
+			<h1 class="large-header large-header--display">Register</h1>
+			<!-- Login Form -->
+			<form th:action="@{/register/processRegistrationForm}" 
+			th:object="${regUser}" method="POST">
+
+				<!-- Check for registration error -->
+				<!--		<div th:if="${registrationError}" class="alert mb-2">
+					<p th:text="${registrationError}"></p>
+				</div>-->
+		
+				<ul class="alert mb-2 list-plain">
+					<li th:each="err : ${registrationError}" th:text="${err}" />
+				</ul>
+
+				<!-- User name -->
+				<div>
+					<label>Username</label>
+					<input type="text" th:field="*{userName}"/>
+				</div>
+
+				<div th:if="${#fields.hasErrors('userName')}" class="alert">
+				<ul class="list-plain">
+				  <li th:each="err : ${#fields.errors('userName')}" th:text="'User name ' + ${err}" />
+				</ul>						
+				</div>
+
+				<!-- Password -->
+				<div class="gutter-top-2">
+					<label>Password</label>
+					<input type="password" th:field="*{password}" class="form-control" th:errorclass="fieldError" />
+				</div>
+
+				<div th:if="${#fields.hasErrors('password')}"class="alert">
+					<ul class="list-plain">
+						<li th:each="err : ${#fields.errors('password')}" th:text="${err}" />
+					</ul>						
+				</div>
+
+				<!-- Confirm Password -->
+				<div class="gutter-top-2">
+					<label>Confirm password</label>
+					<input type="password" th:field="*{matchingPassword}"  class="form-control" th:errorclass="fieldError" />
+				</div>
+				<div th:if="${#fields.hasErrors('matchingPassword')}" class="alert">
+					<ul class="list-plain">
+						<li th:each="err : ${#fields.errors('matchingPassword')}" th:text="'Password ' + ${err}" />
+					</ul>						
+				</div>			
+
+				<!-- Email -->
+				<div class="gutter-top-2">
+					<label>Email</label>
+					<input type="text" th:field="*{email}"  class="form-control" th:errorclass="fieldError" />
+				</div>
+				<div th:if="${#fields.hasErrors('email')}" class="alert">
+					<ul class="list-plain">
+						<li th:each="err : ${#fields.errors('email')}" th:text="${err}" />
+					</ul>						
+				</div>
+
+					<!-- Register-->
+				<div class="gutter-top-2 center-text">
+					<button class="mb-1 btn btn--primary btn--big" type="submit" name="save">Register</button>
+					<a class="btn btn--big btn--info" href='/showMyLoginPage'>Login</a> 
+				
+				</div>
+					
+					
+			</form>
+
+		</div>
+	</div>
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link th:href="@{/css/styles_principal.css}" rel="stylesheet" />
+
+	<title>Lesson Plans</title>
+</head>
+
+<body>
+	<div th:insert="navbar.html:: nav"></div>
+	<div class="main-content">
+
+		<h1 class="large-header large-header--article"><span th:text="${lp.title}">Lesson Plan</span><span class="badge">A1</span></h1>
+
+		<div th:if="${!A1active  || A1active == null}">
+			<p th:if="${session.user == null}">You must be logged in and have a <span th:text="${lp.assignedSubscription.displayName}"></span>
+			subscription in order to access this lesson plan.</p>
+			<p th:if="${session.user != null}">You must have a <span th:text="${lp.assignedSubscription.displayName}"></span>
+			subscription in order to access this lesson plan.</p>
+			<a class="mt-2 btn btn--primary" href='/checkout?id=A1'>Get this subscription now</a>
+			<a th:if="${session.user == null}" id="loginRegister" class="mt-2 btn btn--info" href="#" >Login/Register</a>
+		</div>
+
+		<div th:if="${A1active}">
+			<div th:insert="${'/lessonplans/A2/' + lessonPlanToInclude}:: #insert-section"></div>			
+		</div>
+
+	</div>
+	
+	<form name="sendPreviousPage" id="sendPreviousPage" style="display: none"
+		method="POST" action='/showMyLoginPage'>
+		<input type="hidden" th:name="${_csrf.parameterName}"
+					th:value="${_csrf.token}" />
+		<input type="hidden" name="previousPage" th:value="'lessonplans/' + ${lp.assignedSubscription.name} + '/?id=' + ${lp.id}"  />
+		<input hidden="true" type="submit" value="sendPreviousPage" />
+	</form>
+
+
+	<script type="text/javascript" th:src="@{/js/lessonplantemplates.js}"></script>
+</body>
+
+</html>

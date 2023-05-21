@@ -1,0 +1,63 @@
+
+<nav class="navigation">
+	<ul class="navigation__navlinks">
+		<li><a class="navigation__item navigation__item--logo" href="/lessonplans">Lesson Plans
+				Online</a></li>
+	</ul>
+
+	<div class="flex flex--hides">
+		<ul class="navigation__navlinks navigation__navlinks--right">
+
+			<li 
+				sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')"><a
+				class="navigation__item navigation__item--right"
+				href="/admin">Admin</a></li>
+			<li ><a class="navigation__item navigation__item--right" href="/lessonplans">Lesson plans</a></li>
+			<li ><a class="navigation__item navigation__item--right" href="/account">Account</a></li>
+
+
+			<li th:if="${session.user != null }" ><a
+				class="navigation__item navigation__item--right"
+				href="javascript: document.logoutForm.submit()" role="menuitem"> Logout</a></li>
+				
+			<li th:if="${session.user == null }"><a
+			class="navigation__item navigation__item--right"
+			href="/showMyLoginPage" role="menuitem"> Login</a></li>
+
+
+			<li><a class="navigation__item navigation__item--right" href="/upgrade">Upgrade</a></li>
+		</ul>
+	</div>
+
+
+	<div class="flex-col flex-col--hides">
+		<ul class="navigation__navlinks navigation__navlinks--right navigation__navlinks--left-smaller-screen ">
+			<li 
+				sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')"><a
+				class="navigation__item navigation__item--right"
+				href="/admin">Admin</a></li>
+			<li ><a class="navigation__item navigation__item--right" href="/lessonplans">Lesson plans</a></li>
+			<li ><a class="navigation__item navigation__item--right" href="/account">Account</a></li>
+
+		</ul>
+		<ul class="navigation__navlinks navigation__navlinks--right navigation__navlinks--left-smaller-screen">
+			<li th:if="${session.user != null }" ><a
+				class="navigation__item navigation__item--right"
+				href="javascript: document.logoutForm.submit()" role="menuitem"> Logout</a></li>
+			<li th:if="${session.user == null }"><a
+			class="navigation__item navigation__item--right"
+			href="/showMyLoginPage" role="menuitem"> Login</a></li>
+			<li><a class="navigation__item navigation__item--right" href="/upgrade">Upgrade</a></li>
+		</ul>
+	</div>
+
+
+
+
+	<form th:if="${session.user != null}" name="logoutForm" style="display: none"
+		method="POST" th:action="@{/logout}">
+		<input hidden="true" type="submit" value="Logout" />
+	</form>
+
+</nav>
+

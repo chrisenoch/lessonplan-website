@@ -1,0 +1,176 @@
+.main-content {
+	//margin: 0rem 12rem 0rem 12rem;
+	margin: 0% 15% 0% 15%;
+	background-color: rgb(249, 244, 244);
+	background-color: white;
+	overflow: hidden;
+	min-height: 100vh;	
+	padding: 2rem 0rem;
+
+	@include respond(med-3) {
+		margin: 0% 5% 0% 5%;
+	}
+}
+
+.h2{
+	text-align: center;
+	background-color:  rgba($color-primary, 0.8);
+	//background-color: #98d932;
+	color:white;
+	padding: 1rem 0rem;
+	border-bottom: 1px solid white;
+
+	&--secondary{
+		background-color:  rgba($color-secondary-light, 0.7);
+	}
+}
+
+.large-header {
+	font-size: 8.8rem;
+	line-height: 10rem;
+	display: block;
+	color: black;
+	font-weight: 400;
+	margin: 2rem 2rem;
+
+	&--display {
+		@include respond(med-3) {
+			font-size: 7.8rem;
+			line-height: 10rem;
+		}
+	
+	
+		@include respond(med-1) {
+			text-align: center;
+			font-size: 6rem;
+			line-height: 7.5rem;
+			//margin-left: 10rem;
+			//line-height: 9rem;
+		}
+
+	}
+
+	&--article{
+		@include respond(med-3) {
+			font-size: 7.8rem;
+			line-height: 10rem;
+		}
+	
+	
+		@include respond(med-1) {
+			text-align: center;
+			font-size: 6rem;
+			line-height: 7.5rem;
+			//margin-left: 10rem;
+			//line-height: 9rem;
+		}
+	
+		@include respond(sm-1) {
+			text-align: center;
+			font-size: 4.3rem;
+			line-height: 5.7rem;
+			//line-height: 9rem;
+		}
+	}
+
+
+
+}
+
+.basic-header{
+	text-decoration: underline;
+	margin-bottom: 3rem;
+}
+
+.font{
+	font-weight:400;
+	&--med{
+		font-size: 2rem;
+		line-height: 2.7rem;
+	}
+
+	&--big{
+		font-size: 4rem;
+		line-height: 5.3rem;
+	}
+
+}
+
+.list-plain{
+	list-style-type: none;
+}
+
+.display-list {
+	list-style-type: none;
+	width: 25%;
+	min-width: 31.6rem;
+	margin: .3rem 0rem;
+	padding: .7rem;
+}
+
+.alert{
+	color: $color-alert;
+}
+
+.success{
+	color: $color-success;
+}
+
+
+.basic-msg{
+	margin-bottom: 1rem;
+
+	&--alert{
+		color: $color-alert;
+	}
+	
+	&--success{
+		color: $color-success;
+	}
+}
+
+.basic-container {
+	display: flex;
+	flex-wrap: wrap;
+
+	@include respond(med-1) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+.lp-container {
+	display: flex;
+	flex-wrap: wrap;
+
+	@include respond(med-1) {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+
+
+
+#mega-menu {
+	display:none;
+	overflow: auto; 
+}
+
+
+
+.styled-link {
+	&{
+		color: #0073FF;
+	}
+
+	&:hover {
+		background-color: rgba(255, 140, 0, 0.2);
+		color: rgb(33, 37, 41);
+	}
+
+	&:visited {
+		color: #551A8B;
+	}
+}
+

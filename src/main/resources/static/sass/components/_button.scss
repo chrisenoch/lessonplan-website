@@ -1,0 +1,122 @@
+.btn {
+	color: white;
+	padding: .4em 1em;
+	position: relative;
+	text-decoration: none;
+	text-align: center;
+	display: inline-block;
+	border-radius: 1.4rem;
+	letter-spacing: 0.2px;
+	border:none;
+
+	&--checkout-stripe {
+		text-shadow: 0 -1px 0 rgba(46,86,153,0.3);
+		box-shadow: 0 1px 0 rgba(46,86,153,0.15),0 0 4px rgba(86,149,219,0),inset 0 2px 0 rgba(41,102,20,0);
+		font-weight: bold;
+		background: #45b1e8;
+	}
+
+	&--small {
+		font-size: 1.4rem;
+	}
+
+	&--med {
+		font-size: $default-font-size;
+	}
+
+	&--1-7{
+		font-size:1.7rem;
+	}
+
+	&--big{
+		font-size: 2.2rem;
+	}
+	&--primary {
+		background-color: rgba($color-primary, 0.8);
+
+		&:hover{
+			background-color: rgba($color-primary, 1);
+			cursor: pointer;
+		}
+	}
+
+	&--primary-outline {
+		background-color: $color-white;
+		color: $color-primary;
+		font-weight: 500;
+		border: .2rem solid $color-primary;
+
+		&:hover{
+			background-color: rgba($color-primary, 0.8);
+			cursor: pointer;
+			//border:none;
+			color: white;
+		}
+
+
+	}
+
+	&--secondary{
+		background-color: rgba($color-secondary-dark, 0.8);
+		color: white;
+
+		&:hover{
+			background-color: rgba($color-secondary-dark, 1);
+			cursor: pointer;
+		}
+	}
+
+	&--info{
+		background-color: rgba($color-grey-dark, 0.8);
+		color: white;
+
+		&:hover{
+			background-color: rgba($color-grey-dark, 1);
+			cursor: pointer;
+		}
+	}
+
+	&--tertiary{
+		background-color: rgba(0, 0, 0, 0.1);
+		color: rgb(3, 3, 3);
+		letter-spacing: 0.2px;
+
+		&:hover{
+			background-color: rgba(0, 0, 0, 0.2);
+			cursor: pointer;
+		}
+	}
+
+	&--action-primary {
+		background-color: $color-primary;
+
+		&:hover{
+			background-color: #58b40b;
+			cursor: pointer;
+		}
+	}
+
+	&--action-secondary{
+		background-color: rgba(86, 177, 11, .6);
+
+		&:hover{
+			background-color: rgba(86, 177, 11, .7);
+			cursor: pointer;
+		}
+	}
+
+
+	&--action-tertiary{
+		background-color: rgba(0, 0, 0, 0.1);
+		background-color: rgba(#fff124, .8);
+		//F0E100  
+		color: rgb(3, 3, 3);
+		letter-spacing: 0.2px;
+
+		&:hover{
+			background-color: #f0e100;
+			cursor: pointer;
+		}
+	}
+}
+
