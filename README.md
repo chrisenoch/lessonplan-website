@@ -1,5 +1,5 @@
 # lessonplan-website
-Lesson plan website with Java, Spring, JavaScript
+Lesson plan website with Java, Spring, Spring Data JPA, JavaScript
 
 # Sample Users
 ## User with admin access
